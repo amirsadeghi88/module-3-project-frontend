@@ -5,11 +5,11 @@ import Login from "./pages/Login";
 import ProfilePage from "./pages/ProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AddPetPage from "./pages/AddPetPage";
 
 function App() {
   return (
     <>
-      <nav></nav>
       <Routes>
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<Login />} />
@@ -18,6 +18,14 @@ function App() {
           element={
             <ProtectedRoute>
               <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-pet"
+          element={
+            <ProtectedRoute>
+              <AddPetPage />
             </ProtectedRoute>
           }
         />

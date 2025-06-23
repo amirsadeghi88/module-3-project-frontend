@@ -12,10 +12,10 @@ const AuthContextWrapper = ({ children }) => {
   //function to validate the token in the local storage
   async function authenticateUser() {
     try {
-      const tokenInLocalStorage = localStorage.getItem("authToken");
+      const tokenInStorage = localStorage.getItem("authToken");
       const response = await axios.get("http://localhost:5005/auth/verify", {
         headers: {
-          authorization: `Bearer ${tokenInLocalStorage}`,
+          authorization: `Bearer ${tokenInStorage}`,
         },
       });
       console.log(response.data);

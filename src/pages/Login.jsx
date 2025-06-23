@@ -6,9 +6,11 @@ import { Authcontext } from "../context/AuthContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
   const nav = useNavigate();
-  const { authenticateUser } = useContext(Authcontext);
 
+  //to grab data from the context
+  const { authenticateUser } = useContext(Authcontext);
   async function handleLogin(event) {
     event.preventDefault();
     const userToLogin = { email, password };
@@ -24,6 +26,7 @@ const Login = () => {
       nav("/profile");
     } catch (error) {
       console.log(error);
+      setErrorMessage(error.response.data.errorMessage);
     }
   }
 
@@ -52,6 +55,7 @@ const Login = () => {
       <p>
         New here? <Link to="/"> Sign up here</Link>
       </p>
+      <p className="error-message">{errorMessage}</p>
     </div>
   );
 };

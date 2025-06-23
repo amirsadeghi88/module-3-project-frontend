@@ -6,6 +6,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
   const nav = useNavigate();
 
   function handleSignupUser(event) {
@@ -18,6 +19,7 @@ const Signup = () => {
         nav("/login");
       })
       .catch((err) => console.log(err));
+    setErrorMessage(error.response.data.errorMessage);
   }
 
   return (
@@ -53,6 +55,7 @@ const Signup = () => {
       <p>
         Already a member? <Link to="/login"> Login</Link>
       </p>
+      <p className="error-message">{errorMessage}</p>
     </div>
   );
 };

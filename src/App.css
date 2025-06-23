@@ -22,3 +22,16 @@ nav {
   align-items: center;
   justify-content: space-around;
 }
+nav img{
+  height: 10vh;
+}
+
+.error-message {
+  color: red;
+}
+
+.pet-card {
+  border: 3px solid white
+  padding: 10px
+  margin: 10px
+}
