@@ -53,7 +53,7 @@ const Login = () => {
         <button>Login</button>
       </form>
       <p>
-        New here? <Link to="/"> Sign up here</Link>
+        New here? <Link to="/">Sign up here</Link>
       </p>
       <p className="error-message">{errorMessage}</p>
     </div>
