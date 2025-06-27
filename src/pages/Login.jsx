@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Authcontext } from "../context/AuthContext";
+import Navbar from "../components/Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,7 @@ const Login = () => {
 
   return (
     <div>
+      <Navbar />
       <form onSubmit={handleLogin}>
         <h3>Login form</h3>
         <label>

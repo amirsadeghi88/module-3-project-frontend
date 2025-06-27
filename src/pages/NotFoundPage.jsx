@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const NotFoundPage = () => {
   return (
     <div>
+      <Navbar />
       404 NotFound
       <p>
         The page you are looking for does not exist

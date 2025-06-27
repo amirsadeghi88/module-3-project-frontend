@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -24,6 +25,7 @@ const Signup = () => {
 
   return (
     <div>
+      <Navbar />
       <form onSubmit={handleSignupUser}>
         <h3>Sign up form</h3>
         <label>

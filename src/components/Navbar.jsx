@@ -4,9 +4,9 @@ import { Authcontext } from "../context/AuthContext";
 function Navbar() {
   const { handleLogout } = useContext(Authcontext);
   return (
-    <nav>
+    <nav className="navbar">
       <img alt="logo" />
-      <h2>Our Navbar</h2>
+      <h2></h2>
       <button onClick={handleLogout}>Logout</button>
     </nav>
   );

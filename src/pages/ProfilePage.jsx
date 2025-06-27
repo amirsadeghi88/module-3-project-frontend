@@ -43,11 +43,17 @@ const ProfilePage = () => {
     <div>
       <Navbar />
       <h3>{currentUser.username}'s profile page</h3>
-      <Link to="/add-pets">Add Pet</Link>
+      <button className="add-pet-btn">
+        <Link to="/add-pet">Add Pet</Link>
+      </button>
+      <button className="post-btn">
+        <Link to="/add-post">Add Post</Link>
+      </button>
       <h3>Pets:</h3>
       {pets.map((onepet) => {
         return (
           <div key={onepet._id} className="pet-card">
+            <img src={onepet.image} alt="pet image" />
             <h4>Pet Name: {onepet.name}</h4>
             <button onClick={() => handleRemovePet(onepet._id)}>Remove</button>
           </div>
