@@ -19,8 +19,10 @@ const Signup = () => {
         console.log("User successfully created", res.data);
         nav("/login");
       })
-      .catch((err) => console.log(err));
-    setErrorMessage(error.response.data.errorMessage);
+      .catch((err) => {
+        console.log(err);
+        setErrorMessage(err.response.data.errorMessage);
+      });
   }
 
   return (

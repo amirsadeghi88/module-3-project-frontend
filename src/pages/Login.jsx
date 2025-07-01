@@ -35,26 +35,28 @@ const Login = () => {
     <div>
       <Navbar />
       <form onSubmit={handleLogin}>
-        <h3>Login form</h3>
-        <label>
+        <h3>Please use your credentials to login</h3>
+        <label className="fields">
           Email:{" "}
           <input
+            className="credentials-field"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
         </label>
-        <label>
+        <label className="fields">
           Password:{" "}
           <input
+            className="credentials-field"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <button>Login</button>
+        <button className="login-btn">Login</button>
       </form>
-      <p>
+      <p className="signup-link">
         New here? <Link to="/">Sign up here</Link>
       </p>
       <p className="error-message">{errorMessage}</p>

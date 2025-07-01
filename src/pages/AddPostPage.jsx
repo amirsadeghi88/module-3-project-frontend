@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const AddPostsPage = () => {
   const nav = useNavigate();
@@ -14,14 +15,15 @@ const AddPostsPage = () => {
 
   async function handleAddPost(e) {
     e.preventDefault();
+    const theImage = e.target.image.files[0];
+    //this creates a new object that is form data
+    const ourFormData = new FormData();
+    //these add properties to the new object that is form data
+    ourFormData.append("imageUrl", theImage);
+    ourFormData.append("name", name);
+    ourFormData.append("age", age);
     try {
-      await axios.post("http://localhost:5005/posts/add-post", {
-        name,
-        description,
-        age,
-        dates,
-        image,
-      });
+      await axios.post("http://localhost:5005/posts/add-post", ourFormData);
       nav("/all-posts");
     } catch (error) {
       console.log(error);
@@ -30,58 +32,67 @@ const AddPostsPage = () => {
   return (
     <div>
       <Navbar />
-      <h2>Add a new post</h2>
+
       <form onSubmit={handleAddPost}>
-        <label>
+        <h2>Add a new post</h2>
+        <label className="fields">
           Name:
+          <span> </span>
           <input
+            className="credentials-field"
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
         </label>
-        <label>
+        <label className="fields">
           Description:
+          <span> </span>
           <input
+            className="credentials-field"
             type="text"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
-        <label>
+        <label className="fields">
           Age:
+          <span> </span>
           <input
+            className="credentials-field"
             type="number"
             value={age}
             onChange={(event) => setAge(event.target.value)}
           />
         </label>
-        <label>
+        <label className="fields">
           Dates:
+          <span> </span>
           <input
+            className="credentials-field"
             type="text"
             value={dates}
             onChange={(event) => setDates(event.target.value)}
           />
         </label>
-        <label>
+        <label className="fields">
           Owner:
+          <span> </span>
           <input
+            className="credentials-field"
             type="text"
             value={owner}
             onChange={(event) => setOwner(event.target.value)}
           />
         </label>
-        <label>
+        <label className="fields">
           Image:
-          <input
-            type="text"
-            value={image}
-            onChange={(event) => setImage(event.target.value)}
-          />
+          <span> </span>
+          <input type="file" name="image" />
         </label>
-        <button>Add</button>
+        <button className="submit-pet-btn">Add</button>
       </form>
+      <Footer />
     </div>
   );
 };

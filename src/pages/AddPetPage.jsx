@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const AddPetPage = () => {
   const [name, setName] = useState("");
@@ -20,6 +21,7 @@ const AddPetPage = () => {
     //these add properties to the new object that is form data
     ourFormData.append("imageUrl", theImage);
     ourFormData.append("name", name);
+    ourFormData.append("age", age);
     const tokenInStorage = localStorage.getItem("authToken");
     try {
       await axios.post("http://localhost:5005/pets/add-pet", ourFormData, {
@@ -35,30 +37,36 @@ const AddPetPage = () => {
   return (
     <div>
       <Navbar />
-      <h2>Pets in care currently:</h2>
       <form onSubmit={handleAddPet}>
-        <label>
+        <h3>Add to your pets:</h3>
+        <label className="fields">
           Pet Name:
+          <span> </span>
           <input
+            className="credentials-field"
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
         </label>
-        <label>
+        <label className="fields">
           Age:
+          <span> </span>
           <input
+            className="credentials-field"
             type="number"
             value={age}
             onChange={(event) => setAge(event.target.value)}
           />
         </label>
-        <label>
-          Image :
+        <label className="fields">
+          Image:
+          <span> </span>
           <input type="file" name="image" />
         </label>
         <button className="submit-pet-btn">Add to the list</button>
       </form>
+      <Footer />
     </div>
   );
 };

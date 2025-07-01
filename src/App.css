@@ -1,8 +1,26 @@
+/*********** General Settings *****************/
+
 body {
   margin: 0;
   padding: 0;
   text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
+
+/** the sizing of map container **/
+.leaflet-container {
+  height: 30vh;
+  width: 25vw;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,17 +30,28 @@ body {
 #root {
   height: 100vh;
 }
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
 form {
-  background-color: rgb(215, 215, 215);
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-/** the sizing of map container **/
-.leaflet-container {
-  height: 100vh;
+  align-content: flex-start;
+  justify-content: flex-start;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 form label {
@@ -30,7 +59,7 @@ form label {
 }
 
 .navbar {
-  background-color: rgb(250, 126, 112);
+  background-color: rgb(147, 217, 171);
   width: 100%;
   height: 10vh;
   display: flex;
@@ -40,24 +69,332 @@ form label {
   align-content: center;
   flex-wrap: wrap;
   position: sticky;
+  margin-bottom: 100px;
 }
 
 nav {
-  background-color: aqua;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 nav img {
-  height: 10vh;
+  height: 100px;
+  margin-left: 50px;
+}
+.logo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  color: lab(38.78% -22.49 2.27);
+  font-size: large;
+}
+
+.logout-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-right: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .error-message {
   color: red;
 }
 
-.pet-card {
-  border: 3px solid white;
+.credentials-field {
+  border-radius: 10px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 20px;
+  width: 200px;
+}
+/*************** All Posts Page ****************/
+.accept-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-top: 25px;
+
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  width: 20vw;
+  height: fit-content;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.post-card-list {
+  background-color: rgb(242, 242, 242);
+  border: 1px solid rgb(160, 192, 160);
   padding: 10px;
   margin: 10px;
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
 }
+
+.all-posts {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px;
+}
+
+.back-to-profile-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 200px;
+  margin-top: 25px;
+  margin-left: 35px;
+  margin-right: 40px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 100px;
+}
+
+/******************* Add Post Page ********************/
+
+/****************** Profile Page ***************/
+.profile-page {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.profile-info {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.edit-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-top: 25px;
+  margin-left: 35px;
+  margin-right: 40px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.add-post-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-top: 25px;
+  margin-right: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.add-pet-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-top: 25px;
+  margin-right: 40px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pets-list {
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 1px solid rgb(160, 192, 160);
+  background-color: rgb(255, 247, 238);
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  align-content: flex-start;
+  width: 80vw;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.guest-list {
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 1px solid rgb(160, 192, 160);
+  background-color: rgb(255, 247, 238);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80vw;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.guest-list img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin: 10px;
+}
+
+.remove-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-top: 25px;
+
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.guest-remove-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-top: 25px;
+
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.submit-pet-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 150px;
+  margin-top: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 100px;
+}
+
+.pets-list img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin: 20px;
+}
+.pet-card {
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#my-pet-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: baseline;
+  align-content: baseline;
+  margin-left: 25px;
+}
+#my-pet-info-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: last baseline;
+  width: 600px;
+  height: 215px;
+  margin: 0px;
+  padding: 0px;
+}
+/******************* Add Pet Page ********************/
+/******************* Signup Page ********************/
+
+.login-btn {
+  border-radius: 100px;
+  border: 1px solid rgb(160, 192, 160);
+  height: 35px;
+  width: 100px;
+  margin-top: 25px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.fields {
+  margin-top: 20px;
+}
+
+.signup-link {
+  margin-top: 20px;
+}
+
+.footer {
+  padding: 50px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: center;
+  background-color: rgb(147, 217, 171);
+}
+
+.footer-logo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  color: lab(38.78% -22.49 2.27);
+  font-size: large;
+}
+
+/******************* Login Page ********************/
+
+.map-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: lab(38.78% -22.49 2.27);
+  align-items: flex-start;
+}
+
+.footer-logo img {
+  width: 100px;
+}
+
+.map-title {
+  margin-bottom: 20px;
+}
+/******************* Not Found Page Page ******************/
