@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { API_URL } from "../config/api.config";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +15,7 @@ const Signup = () => {
     event.preventDefault();
     const userToCreate = { username, email, password };
     axios
-      .post("http://localhost:5005/auth/signup", userToCreate)
+      .post(`${API_URL}/auth/signup`, userToCreate)
       .then((res) => {
         console.log("User successfully created", res.data);
         nav("/login");

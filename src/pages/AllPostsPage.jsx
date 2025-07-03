@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { API_URL } from "../config/api.config";
 
 const AllPostsPage = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/posts/all-posts")
+      .get(`${API_URL}/posts/all-posts`)
       .then((res) => {
         console.log(res.data);
         setPosts(res.data);
@@ -21,7 +22,7 @@ const AllPostsPage = () => {
     const tokenInStorage = localStorage.getItem("authToken");
     axios
       .post(
-        `http://localhost:5005/accept/accept-pet/${postId}`,
+        `${API_URL}/accept/accept-pet/${postId}`,
         {},
         {
           headers: {

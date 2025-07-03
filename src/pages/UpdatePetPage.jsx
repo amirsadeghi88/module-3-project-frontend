@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/api.config";
 
 const UpdatePetPage = () => {
   const [updatedPet, setUpdatedPet] = useState([]);
@@ -14,7 +15,7 @@ const UpdatePetPage = () => {
   const { petId } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/pets/update-pet/${petId}`)
+      .get(`${API_URL}/pets/update-pet/${petId}`)
       .then((res) => {
         console.log(res.data);
         setName(res.data.name);
@@ -38,7 +39,7 @@ const UpdatePetPage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5005/pets/update-pet/${petId}`,
+        `${API_URL}/pets/update-pet/${petId}`,
         ourFormData,
         {
           headers: {
@@ -46,14 +47,7 @@ const UpdatePetPage = () => {
           },
         }
       );
-      /*const updatedPet = pet.map((pet) => {
-        if (pet.id == petId) {
-          return response.data;
-        } else {
-          return pet;
-        }
-      });
-      setUpdatedPet(updatedPet);*/
+
       nav("/profile");
     } catch (error) {
       console.log(error);

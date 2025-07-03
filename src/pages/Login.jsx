@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Authcontext } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
+import { API_URL } from "../config/api.config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,10 +17,7 @@ const Login = () => {
     event.preventDefault();
     const userToLogin = { email, password };
     try {
-      const res = await axios.post(
-        "http://localhost:5005/auth/login",
-        userToLogin
-      );
+      const res = await axios.post(`${API_URL}/auth/login`, userToLogin);
 
       //before navigating store the token in the local storage
       localStorage.setItem("authToken", res.data.authToken);

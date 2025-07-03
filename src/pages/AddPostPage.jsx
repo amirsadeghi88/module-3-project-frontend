@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { API_URL } from "../config/api.config";
 
 const AddPostsPage = () => {
   const nav = useNavigate();
@@ -25,7 +26,7 @@ const AddPostsPage = () => {
     ourFormData.append("dates", dates);
 
     try {
-      await axios.post("http://localhost:5005/posts/add-post", ourFormData);
+      await axios.post(`${API_URL}/posts/add-post`, ourFormData);
       nav("/all-posts");
     } catch (error) {
       console.log(error);

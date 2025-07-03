@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { API_URL } from "../config/api.config";
 
 const AddPetPage = () => {
   const [name, setName] = useState("");
@@ -24,7 +25,7 @@ const AddPetPage = () => {
     ourFormData.append("age", age);
     const tokenInStorage = localStorage.getItem("authToken");
     try {
-      await axios.post("http://localhost:5005/pets/add-pet", ourFormData, {
+      await axios.post(`${API_URL}/pets/add-pet`, ourFormData, {
         headers: {
           authorization: `Bearer ${tokenInStorage}`,
         },

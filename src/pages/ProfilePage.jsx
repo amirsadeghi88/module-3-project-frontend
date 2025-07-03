@@ -7,6 +7,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import Footer from "../components/Footer";
+import { API_URL } from "../config/api.config";
 
 const ProfilePage = () => {
   const markers = [
@@ -21,7 +22,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const tokenInStorage = localStorage.getItem("authToken");
     axios
-      .get("http://localhost:5005/pets/user-pets", {
+      .get(`${API_URL}/pets/user-pets`, {
         headers: {
           authorization: `Bearer ${tokenInStorage}`,
         },
@@ -40,7 +41,7 @@ const ProfilePage = () => {
   async function handleRemoveAcceptedPet(petId) {
     const tokenInStorage = localStorage.getItem("authToken");
     axios
-      .delete(`http://localhost:5005/pets/delete-accepted-pet/${petId}`, {
+      .delete(`${API_URL}/pets/delete-accepted-pet/${petId}`, {
         headers: {
           authorization: `Bearer ${tokenInStorage}`,
         },
@@ -55,7 +56,7 @@ const ProfilePage = () => {
   async function handleRemovePet(petId) {
     const tokenInStorage = localStorage.getItem("authToken");
     axios
-      .delete(`http://localhost:5005/pets/delete-pet/${petId}`, {
+      .delete(`${API_URL}/pets/delete-pet/${petId}`, {
         headers: {
           authorization: `Bearer ${tokenInStorage}`,
         },
