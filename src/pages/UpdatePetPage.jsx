@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const UpdatePetPage = () => {
   const [updatedPet, setUpdatedPet] = useState([]);
@@ -61,27 +62,36 @@ const UpdatePetPage = () => {
   return (
     <div>
       <Navbar />
-      <h2>Update Pet</h2>
-      <form onSubmit={handleUpdatePet}>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+      <section className="form">
+        <h1>Edit your pet info</h1>
+        <form onSubmit={handleUpdatePet}>
+          <div className="form-fields">
+            <label className="fields">Name:</label>
+            <input
+              className="credentials-field"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
 
-        <label>Age:</label>
-        <input
-          type="number"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
+            <label className="fields">Age:</label>
+            <input
+              className="credentials-field"
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
 
-        <label>Image:</label>
-        <input type="file" name="image" />
-
-        <button type="submit">Update Pet</button>
-      </form>
+            <label className="fields">Image:</label>
+            <input type="file" name="image" />
+          </div>
+          <Link className="link" to="/profile">
+            <button className="update-pet-btn" type="submit">
+              Update Pet
+            </button>
+          </Link>
+        </form>
+      </section>
       <Footer />
     </div>
   );

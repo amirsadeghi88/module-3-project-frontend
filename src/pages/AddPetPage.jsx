@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -37,35 +37,41 @@ const AddPetPage = () => {
   return (
     <div>
       <Navbar />
-      <form onSubmit={handleAddPet}>
-        <h3>Add to your pets:</h3>
-        <label className="fields">
-          Pet Name:
-          <span> </span>
-          <input
-            className="credentials-field"
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Age:
-          <span> </span>
-          <input
-            className="credentials-field"
-            type="number"
-            value={age}
-            onChange={(event) => setAge(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Image:
-          <span> </span>
-          <input type="file" name="image" />
-        </label>
-        <button className="submit-pet-btn">Add to the list</button>
-      </form>
+      <section className="form">
+        <form onSubmit={handleAddPet}>
+          <h3>Add to your pets:</h3>
+          <div className="form-fields">
+            <label className="fields">
+              Pet Name:
+              <span> </span>
+              <input
+                className="credentials-field"
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Age:
+              <span> </span>
+              <input
+                className="credentials-field"
+                type="number"
+                value={age}
+                onChange={(event) => setAge(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Image:
+              <span> </span>
+              <input type="file" name="image" />
+            </label>
+          </div>
+          <Link className="link" to="/profile">
+            <button className="submit-pet-btn">Add to the list</button>
+          </Link>
+        </form>
+      </section>
       <Footer />
     </div>
   );

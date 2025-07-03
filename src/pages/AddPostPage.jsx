@@ -22,6 +22,8 @@ const AddPostsPage = () => {
     ourFormData.append("imageUrl", theImage);
     ourFormData.append("name", name);
     ourFormData.append("age", age);
+    ourFormData.append("dates", dates);
+
     try {
       await axios.post("http://localhost:5005/posts/add-post", ourFormData);
       nav("/all-posts");
@@ -32,66 +34,69 @@ const AddPostsPage = () => {
   return (
     <div>
       <Navbar />
-
-      <form onSubmit={handleAddPost}>
-        <h2>Add a new post</h2>
-        <label className="fields">
-          Name:
-          <span> </span>
-          <input
-            className="credentials-field"
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Description:
-          <span> </span>
-          <input
-            className="credentials-field"
-            type="text"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Age:
-          <span> </span>
-          <input
-            className="credentials-field"
-            type="number"
-            value={age}
-            onChange={(event) => setAge(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Dates:
-          <span> </span>
-          <input
-            className="credentials-field"
-            type="text"
-            value={dates}
-            onChange={(event) => setDates(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Owner:
-          <span> </span>
-          <input
-            className="credentials-field"
-            type="text"
-            value={owner}
-            onChange={(event) => setOwner(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Image:
-          <span> </span>
-          <input type="file" name="image" />
-        </label>
-        <button className="submit-pet-btn">Add</button>
-      </form>
+      <section className="form">
+        <form onSubmit={handleAddPost}>
+          <h2>Add a new post</h2>
+          <div className="form-fields">
+            <label className="fields">
+              Name:
+              <span> </span>
+              <input
+                className="credentials-field"
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Description:
+              <span> </span>
+              <input
+                className="credentials-field"
+                type="text"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Age:
+              <span> </span>
+              <input
+                className="credentials-field"
+                type="number"
+                value={age}
+                onChange={(event) => setAge(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Dates:
+              <span> </span>
+              <input
+                className="credentials-field"
+                type="text"
+                value={dates}
+                onChange={(event) => setDates(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Owner:
+              <span> </span>
+              <input
+                className="credentials-field"
+                type="text"
+                value={owner}
+                onChange={(event) => setOwner(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Image:
+              <span> </span>
+              <input type="file" name="image" />
+            </label>
+          </div>
+          <button className="submit-post-btn">Submit</button>
+        </form>
+      </section>
       <Footer />
     </div>
   );

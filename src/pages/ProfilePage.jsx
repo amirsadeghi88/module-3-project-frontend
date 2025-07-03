@@ -75,8 +75,8 @@ const ProfilePage = () => {
       <Navbar />
       <section className="profile-page">
         <section className="profile-info">
-          <h3> Welcome back {currentUser.username}</h3>
-
+          <h1> Welcome back {currentUser.username}</h1>
+          <h3> Here is your pet info:</h3>
           <section>
             <div className="pets-list">
               {pets.map((onepet) => {
@@ -84,33 +84,26 @@ const ProfilePage = () => {
                   <div key={onepet._id} className="pet-card">
                     <img src={onepet.image} alt="pet image" />
                     <div id="my-pet-info">
-                      <h4 className="pet-name">My pets: {onepet.name}</h4>
+                      <h4 className="pet-name">Pet Name: {onepet.name}</h4>
                       <h4 className="pet-age">Age: {onepet.age}</h4>
-                      <div id="my-pet-info-btns">
-                        <button
-                          className="remove-btn"
-                          onClick={() => handleRemovePet(onepet._id)}
-                        >
-                          Remove
-                        </button>
-                        <button className="edit-btn">
-                          <Link
-                            className="link"
-                            to={`/update-pet/${onepet._id}`}
+                      <div className="pet-list-btns">
+                        <Link className="link">
+                          <button
+                            className="remove-btn"
+                            onClick={() => handleRemovePet(onepet._id)}
                           >
-                            Edit
-                          </Link>
-                        </button>
-                        <button className="add-pet-btn">
-                          <Link className="link" to="/add-pet">
-                            Add Pet
-                          </Link>
-                        </button>
-                        <button className="add-post-btn">
-                          <Link className="link" to="/add-post">
-                            Add Post
-                          </Link>
-                        </button>
+                            Remove
+                          </button>
+                        </Link>
+                        <Link className="link" to={`/update-pet/${onepet._id}`}>
+                          <button className="edit-btn">Edit</button>
+                        </Link>
+                        <Link className="link" to="/add-pet">
+                          <button className="add-pet-btn">Add Pet</button>
+                        </Link>
+                        <Link className="link" to="/add-post">
+                          <button className="add-post-btn">Add Post</button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -123,21 +116,29 @@ const ProfilePage = () => {
 
       <section className="profile-page">
         <section className="profile-info">
-          <h3> Here are the pets in your care</h3>
+          <h3> Here are the pets in your care:</h3>
           <section>
             <div className="guest-list">
               {acceptedPet.map((onepet) => {
                 return (
                   <div key={onepet._id} className="pet-card">
                     <img src={onepet.image} alt="pet image" />
-                    <h4 className="pet-name">My guest's name: {onepet.name}</h4>
-                    <h4 className="dates">with me within: {onepet.dates}</h4>
-                    <button
-                      className="guest-remove-btn"
-                      onClick={() => handleRemoveAcceptedPet(onepet._id)}
-                    >
-                      Remove
-                    </button>
+                    <div id="my-pet-info">
+                      <h4 className="pet-name">
+                        My guest's name: {onepet.name}
+                      </h4>
+                      <h4 className="dates">with me within: {onepet.dates}</h4>
+                      <div className="guest-list-btns">
+                        <Link className="link">
+                          <button
+                            className="guest-remove-btn"
+                            onClick={() => handleRemoveAcceptedPet(onepet._id)}
+                          >
+                            Remove
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 );
               })}
