@@ -25,11 +25,12 @@ const AddPetPage = () => {
     ourFormData.append("age", age);
     const tokenInStorage = localStorage.getItem("authToken");
     try {
-      await axios.post(`${API_URL}/pets/add-pet`, ourFormData, {
+      const addPet = await axios.post(`${API_URL}/pets/add-pet`, ourFormData, {
         headers: {
           authorization: `Bearer ${tokenInStorage}`,
         },
       });
+      console.log(addPet, API_URL);
       nav("/profile");
     } catch (error) {
       console.log(error);
@@ -68,9 +69,8 @@ const AddPetPage = () => {
               <input type="file" name="image" />
             </label>
           </div>
-          <Link className="link" to="/profile">
-            <button className="submit-pet-btn">Add to the list</button>
-          </Link>
+
+          <button className="submit-pet-btn">Add to the list</button>
         </form>
       </section>
       <Footer />
