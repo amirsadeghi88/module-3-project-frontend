@@ -26,6 +26,10 @@ function Navbar() {
           {" "}
           Add Inquiry{" "}
         </Link>
+        <Link className="link" to="/add-pet">
+          {" "}
+          Add Pet{" "}
+        </Link>
       </section>
 
       <button className="logout-btn" onClick={handleLogout}>
