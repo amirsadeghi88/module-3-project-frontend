@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Authcontext } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import { API_URL } from "../config/api.config";
+import Footer from "../components/Footer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -32,32 +33,38 @@ const Login = () => {
   return (
     <div>
       <Navbar />
-      <form onSubmit={handleLogin}>
-        <h3>Please use your credentials to login</h3>
-        <label className="fields">
-          Email:{" "}
-          <input
-            className="credentials-field"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label className="fields">
-          Password:{" "}
-          <input
-            className="credentials-field"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-        <button className="login-btn">Login</button>
-      </form>
-      <p className="signup-link">
-        New here? <Link to="/">Sign up here</Link>
-      </p>
-      <p className="error-message">{errorMessage}</p>
+      <section className="form">
+        <form onSubmit={handleLogin}>
+          <h3>Please use your credentials to login</h3>
+          <div className="form-fields">
+            <label className="fields">
+              Email:{" "}
+              <input
+                className="credentials-field"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Password:{" "}
+              <input
+                className="credentials-field"
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </label>
+          </div>
+          <button className="login-btn">Login</button>
+
+          <p className="signup-link">
+            New here? <Link to="/">Sign up here</Link>
+          </p>
+          <p className="error-message">{errorMessage}</p>
+        </form>
+      </section>
+      <Footer />
     </div>
   );
 };

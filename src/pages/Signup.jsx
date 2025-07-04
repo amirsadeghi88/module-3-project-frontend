@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { API_URL } from "../config/api.config";
+import Footer from "../components/Footer";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -29,38 +30,47 @@ const Signup = () => {
   return (
     <div>
       <Navbar />
-      <form onSubmit={handleSignupUser}>
-        <h3>Sign up form</h3>
-        <label>
-          Username:{" "}
-          <input
-            type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-        <label>
-          Email:{" "}
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-        <button>Signup</button>
-      </form>
-      <p>
-        Already a member? <Link to="/login"> Login</Link>
-      </p>
-      <p className="error-message">{errorMessage}</p>
+      <section className="form">
+        <form onSubmit={handleSignupUser}>
+          <h3>Please sign up with your information</h3>
+          <div className="form-fields">
+            <label className="fields">
+              Username:{" "}
+              <input
+                className="credentials-field"
+                type="text"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Email:{" "}
+              <input
+                className="credentials-field"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </label>
+            <label className="fields">
+              Password:{" "}
+              <input
+                className="credentials-field"
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </label>
+          </div>
+          <button className="signup-btn">Signup</button>
+
+          <p>
+            Already a member? <Link to="/login"> Login</Link>
+          </p>
+          <p className="error-message">{errorMessage}</p>
+        </form>
+      </section>
+      <Footer />
     </div>
   );
 };
