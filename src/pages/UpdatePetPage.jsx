@@ -79,11 +79,10 @@ const UpdatePetPage = () => {
             <label className="fields">Image:</label>
             <input type="file" name="image" />
           </div>
-          <Link className="link" to="/profile">
-            <button className="update-pet-btn" type="submit">
-              Update Pet
-            </button>
-          </Link>
+
+          <button className="update-pet-btn" type="submit">
+            Update Pet
+          </button>
         </form>
       </section>
       <Footer />
