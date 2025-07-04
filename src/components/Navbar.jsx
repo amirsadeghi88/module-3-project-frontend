@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Authcontext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   const { handleLogout } = useContext(Authcontext);
@@ -8,7 +9,7 @@ function Navbar() {
     <nav className="navbar">
       <Link className="link" to="/profile">
         <div className="logo">
-          <img src="./src/assets/logo.png" alt="logo" />
+          <img src={logo} alt="logo" />
           <h2>My Pet Care</h2>
         </div>
       </Link>
