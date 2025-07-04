@@ -54,14 +54,15 @@ const AllPostsPage = () => {
                 {post.dates}
               </p>
               <img src={post.image} alt="pet image" />
-              <Link className="link" to="/profile">
-                <button
-                  className="accept-btn"
-                  onClick={() => handleAcceptPet(post._id)}
-                >
+
+              <button
+                className="accept-btn"
+                onClick={() => handleAcceptPet(post._id)}
+              >
+                <Link className="link" to="/profile">
                   Accept
-                </button>
-              </Link>
+                </Link>
+              </button>
             </div>
           </div>
         ))}
